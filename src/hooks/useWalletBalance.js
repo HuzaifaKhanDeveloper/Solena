@@ -29,17 +29,10 @@ export const useWalletBalance = () => {
 
         getBalance();
         
-        // Set up subscription for balance changes
-        const subscriptionId = connection.onAccountChange(
-            publicKey,
-            (accountInfo) => {
-                setBalance(accountInfo.lamports / LAMPORTS_PER_SOL);
-            }
-        );
+        // Refresh balance every 10 seconds
+        const interval = setInterval(getBalance, 10000);
 
-        return () => {
-            connection.removeAccountChangeListener(subscriptionId);
-        };
+        return () => clearInterval(interval);
     }, [connection, publicKey]);
 
     return { balance, loading };

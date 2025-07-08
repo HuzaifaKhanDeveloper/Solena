@@ -4,8 +4,6 @@ import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import {
     PhantomWalletAdapter,
     SolflareWalletAdapter,
-    TorusWalletAdapter,
-    LedgerWalletAdapter,
 } from '@solana/wallet-adapter-wallets';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import { clusterApiUrl } from '@solana/web3.js';
@@ -25,8 +23,6 @@ const WalletContextProvider = ({ children }) => {
         () => [
             new PhantomWalletAdapter(),
             new SolflareWalletAdapter(),
-            new TorusWalletAdapter(),
-            new LedgerWalletAdapter(),
         ],
         [network]
     );

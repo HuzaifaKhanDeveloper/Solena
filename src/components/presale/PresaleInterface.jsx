@@ -45,23 +45,21 @@ const PresaleInterface = () => {
 
     // Countdown timer
     useEffect(() => {
-        const targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + 30); // 30 days from now
+        const targetDate = new Date('2024-12-31T23:59:59'); // Set specific end date
 
         const timer = setInterval(() => {
             const now = new Date().getTime();
             const distance = targetDate.getTime() - now;
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            setTimeLeft({ days, hours, minutes, seconds });
-
-            if (distance < 0) {
-                clearInterval(timer);
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                setTimeLeft({ days, hours, minutes, seconds });
+            } else {
                 setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+                clearInterval(timer);
             }
         }, 1000);
 
@@ -86,15 +84,17 @@ const PresaleInterface = () => {
             
             if (solAmount > balance) {
                 alert('Insufficient SOL balance');
+                setLoading(false);
                 return;
             }
 
-            // Create transaction (simplified for demo)
+            // Create a simple transfer transaction for demo purposes
+            // In production, this would interact with your presale smart contract
             const transaction = new Transaction().add(
                 SystemProgram.transfer({
                     fromPubkey: publicKey,
-                    toPubkey: new PublicKey('11111111111111111111111111111112'), // System program for demo
-                    lamports: Math.floor(solAmount * LAMPORTS_PER_SOL),
+                    toPubkey: publicKey, // Self-transfer for demo
+                    lamports: Math.floor(0.001 * LAMPORTS_PER_SOL), // Small amount for demo
                 })
             );
 
