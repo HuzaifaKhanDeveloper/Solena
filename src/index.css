@@ -107,79 +107,6 @@ body {
   transform: translateY(-1px);
 }
 
-.card-text {
-  background: linear-gradient(90deg, #5F78FF 5%, #3FD3B6 50%);
-  background-clip: text;
-  color: transparent;
-}
-
-.card-color {
-  background-image: linear-gradient(to right, #4FA5DC 30%, #ECFDFF 6%);
-}
-
-
-.vertical-line {
-  border-left: 2px solid #539EE1;
-  height: 40px;
-}
-
-.main-card {
-  background: rgba(42, 43, 78, 0.4);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border-radius: 20px;
-  transition: all 0.3s ease;
-}
-
-.main-card:hover {
-  transform: translateY(-5px);
-  border-color: #3ED3B5;
-}
-
-.hero-section {
-  background: rgba(42, 43, 78, 0.4);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border-radius: 30px;
-}
-
-/* Scrollbar Styles */
-.scrollbarHide::-webkit-scrollbar {
-  display: none;
-}
-
-.scrollbarHide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #1b1b37;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #3ED3B5, #5F78FF);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #5F78FF, #3ED3B5);
-}
-
-/* Slick Carousel Styles */
-.slick-dots {
-  color: white !important;
-}
-
-.slick-dots li button:before {
-  color: white !important;
-}
-
 /* Selection Styles */
 ::selection {
   background-color: #3ED3B5;
@@ -224,6 +151,24 @@ body {
 
 .animate-spin {
   animation: spin 1s linear infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1b1b37;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3ED3B5, #5F78FF);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #5F78FF, #3ED3B5);
 }
 
 /* Responsive Design Improvements */

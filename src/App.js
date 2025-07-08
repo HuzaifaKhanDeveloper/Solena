@@ -9,4 +9,5 @@ const App = () => {
     </WalletContextProvider>
   )
 }
+
 export default App
