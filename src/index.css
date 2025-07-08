@@ -10,6 +10,59 @@ body {
   background-image: url("./assets//images//body_bg.png");
   background-size: cover;
   background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+
+/* Wallet Adapter Styles Override */
+.wallet-adapter-button {
+  background: linear-gradient(275.37deg, #3ED3B5 8.24%, #5F78FF 90.82%) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  color: #1B1B36 !important;
+  padding: 12px 24px !important;
+  transition: all 0.2s ease !important;
+}
+
+.wallet-adapter-button:hover {
+  opacity: 0.9 !important;
+  transform: translateY(-1px) !important;
+}
+
+.wallet-adapter-modal {
+  background: #1b1b37 !important;
+}
+
+.wallet-adapter-modal-wrapper {
+  background: rgba(27, 27, 55, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.wallet-adapter-modal-title {
+  color: #ECFDFF !important;
+}
+
+.wallet-adapter-modal-list {
+  background: #1c2340 !important;
+  border: 1px solid #539EE1 !important;
+  border-radius: 12px !important;
+}
+
+.wallet-adapter-modal-list-item {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 8px !important;
+  margin: 4px !important;
+  transition: all 0.2s ease !important;
+}
+
+.wallet-adapter-modal-list-item:hover {
+  background: #539EE1/10 !important;
+  border-color: #539EE1 !important;
+}
+
+.wallet-adapter-button-trigger {
+  color: #ECFDFF !important;
 }
 
 .heading {
@@ -17,7 +70,6 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* text-shadow: 2px 2px 2px #5E7EFF66; */
 }
 
 .heading_invest {
@@ -25,7 +77,6 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* text-shadow: 2px 2px 2px #5E7EFF66; */
 }
 
 .card_hover {
@@ -34,20 +85,26 @@ body {
 
 .btn-main {
   background: linear-gradient(275.37deg, #3ED3B5 8.24%, #5F78FF 90.82%);
+  transition: all 0.2s ease;
+}
+
+.btn-main:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
 }
 
 .btn-border {
   border-width: 2px;
   border-style: solid;
   border-color: #539EE1;
-  transition: background-color 0.3s;
-  /* Add transition for smooth effect */
+  transition: all 0.3s ease;
 }
 
 .btn-border:hover {
   background: linear-gradient(90deg, #5f78ff, #47c4c3);
   background-clip: border-box;
   background-origin: border-box;
+  transform: translateY(-1px);
 }
 
 .card-text {
@@ -62,10 +119,8 @@ body {
 
 
 .vertical-line {
-  border-left: 2px solid #1B1B36;
-  /* Change the color and thickness as needed */
+  border-left: 2px solid #539EE1;
   height: 40px;
-  /* Adjust the height as needed */
 }
 
 .main-card {
@@ -73,6 +128,12 @@ body {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.main-card:hover {
+  transform: translateY(-5px);
+  border-color: #3ED3B5;
 }
 
 .hero-section {
@@ -82,32 +143,96 @@ body {
   border-radius: 30px;
 }
 
-/* .collection .slick-slider {
-  display: flex !important;
-  align-items: center;
-} */
-
-
-/* Hide scrollbar for Chrome, Safari and Opera */
+/* Scrollbar Styles */
 .scrollbarHide::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
 .scrollbarHide {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1b1b37;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3ED3B5, #5F78FF);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #5F78FF, #3ED3B5);
+}
+
+/* Slick Carousel Styles */
 .slick-dots {
   color: white !important;
-  ;
 }
 
 .slick-dots li button:before {
   color: white !important;
 }
 
+/* Selection Styles */
 ::selection {
-  background-color: transparent;
+  background-color: #3ED3B5;
+  color: #1B1B36;
+}
+
+/* Animation Classes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-custom {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Loading Spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Responsive Design Improvements */
+@media (max-width: 768px) {
+  .hero-section {
+    margin: 0 16px;
+  }
+  
+  .main-card {
+    margin: 0 8px;
+  }
 }
